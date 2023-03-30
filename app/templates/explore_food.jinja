@@ -1,0 +1,20 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<h3 class="page_title">Expore food near you...</h3>
+<div class="post_container">
+    {% for post in posts [::-1]%}
+    <div class="box_post">
+        <img id='pineapple' src="../static/images/bread.png" alt="">
+        <h4 class="explore_name">{{ post.author.store_name }} </h4>
+        <p class="box_txt items">Items: {{post.items}}</p>
+        <p class="box_txt price">{{post.price}}</p>
+        <p class="box_txt"><b>Available for pick up: </b>{{post.pickup_time}}</p>
+        <p class="box_txt">Posted by: {{ post.author.username }}</p>
+        <form action="{{ url_for('social.my_boxes') }}" method="POST">
+            <input class="btn1" type="submit" value="Reserve Box">
+    </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

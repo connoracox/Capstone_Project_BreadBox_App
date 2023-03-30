@@ -1,0 +1,20 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    <p class="white">Please be sure to Sign In or Register to begin eliminating food waste with BreadBox.</p>
+    <h2 class="page_title">Sign In</h2>
+        <form action="" method="post">
+        {{ signin_form.hidden_tag() }}
+        <p class="white">
+        {{ signin_form.username.label }} <br>
+        {{ signin_form.username(size=32) }}
+        </p>
+        <p class="white">
+        {{ signin_form.password.label }} <br>
+        {{ signin_form.password(size=32) }}
+        </p>
+        <p class="white">{{ signin_form.remember_me() }}  {{ signin_form.remember_me.label }}</p>
+        <p>{{ signin_form.submit(class='btn1 btn-primary') }}</p>
+    </form>
+    <a class='btn1' href="/auth/register">Register Here</a>
+{% endblock %}

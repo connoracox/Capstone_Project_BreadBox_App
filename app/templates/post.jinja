@@ -1,0 +1,22 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    <h2 class="page_title">Post Boxes</h2>
+        <img id='pineapple' src="../static/images/bread.png" alt="">
+    <form  class="white"action="" method="post">
+        {{ post_form.hidden_tag() }}
+        <p class="white">
+        {{ post_form.items.label }} <br>
+        {{ post_form.items(size=32) }}
+        </p>
+        <p class="white">
+        {{ post_form.pickup_time.label }} <br>
+        {{ post_form.pickup_time(size=32) }}
+        </p>
+        <p class="white">
+        {{ post_form.price.label }} <br>
+        {{ post_form.price(size=32) }}
+        </p>
+        <p>{{ post_form.submit(class='btn1 btn-primary') }}</p>
+    </form>
+{% endblock %}

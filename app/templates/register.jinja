@@ -1,0 +1,17 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+        <div class="reg_box">
+            <h2 class="page_title">Register</h2>
+            <form action="" method="post">
+                {{ register_form.hidden_tag() }}
+                <p class="account_select">
+                    {{ register_form.vendor() }}  
+                </p>
+                <p class="white">
+                    {{ register_form.vendor.label }}
+                </p>
+                <p>{{ register_form.submit(class='btn1 btn-primary') }}</p>
+            </form>
+        </div>
+{% endblock %}

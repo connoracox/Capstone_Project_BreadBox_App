@@ -1,0 +1,31 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    <h2 class="page_title">Register</h2>
+    <form action="" method="post">
+        {{ user_register_form.hidden_tag() }}
+        <p>
+        {{ user_register_form.username.label }} <br>
+        {{ user_register_form.username(size=32) }}
+        {% for error in user_register_form.username.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ user_register_form.email.label }} <br>
+        {{ user_register_form.email(size=32) }}
+        {% for error in user_register_form.email.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ user_register_form.password.label }} <br>
+        {{ user_register_form.password(size=32) }}
+        </p>
+        <p>
+        {{ user_register_form.confirm_password.label }} <br>
+        {{ user_register_form.confirm_password(size=32) }}
+        </p>
+        <p>{{ user_register_form.submit(class='btn1 btn-primary') }}</p>
+    </form>
+{% endblock %}

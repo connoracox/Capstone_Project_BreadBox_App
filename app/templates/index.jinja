@@ -1,0 +1,27 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+
+    <h1 class="page_title">Welcome to Breadbox</h1>
+    <br>
+    <div class="all_home">
+        <div class="home_words">
+            <p>The app for delicious snacks that eliminate food waste.</p><br><br>
+        </div>
+        <div class="home_words">
+            <p>How it works:</p>
+            <ul class="how_explained">
+                <li>Explore food from local restaurants and bakeries
+                that would normally get thrown out at the end of the day.</li> 
+                <li>When you see something you like, reserve that box, and
+                pick it up during the stated time. </li> 
+                <li>For every box purchased, BreadBox will donate a box of food to local food banks.</li> 
+            </ul>
+        </div>
+    </div>
+    <div class="btns">
+        <a class="btn1" href="/about">ABOUT</a><br>
+        <a class="btn1" href="/auth/signin">SIGN IN</a><br>
+        <a class="btn1" href="/auth/register">REGISTER</a><br>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<h2 class="page_title">Congrats on placing your order!</h2><br><br>
+<h4><small>Order Confirmation Number:</small><p class="white">{{ random.randint(1,100000) }}</p></h4>
+<br><br>
+{# <p> Buyer:{{ (user.buyer.buyer) }}</p> #}
+<p class="white"><strong>Be sure to show your Order Confirmation Number to a staff member when you arrive!</strong></p>
+<form action="{{ url_for('main.index') }}" method="POST">
+        <input type="submit" class='btn1' value="Confirm Pick-Up">
+{% for buyer in buyer %}
+    <p>{{ buyer }} reserved: 1 box!</p> 
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    <h2 class="page_title">Review your order</h2>
+    <form action="" method="post">
+        {{ review_form.hidden_tag() }}
+        <p>
+        {{ review_form.items.label }} <br>
+        {{ review_form.items(size=32) }}
+        </p>
+        <p>
+        {{ review_form.quantity.label }} <br>
+        {{ review_form.quantity(size=32) }}
+        </p>
+        <p>
+        {{ review_form.pickup_time.label }} <br>
+        {{ review_form.pickup_time(size=32) }}
+        </p>
+        <p>{{ review_form.submit(class='btn btn-primary') }}</p>
+    </form>
+{% endblock %}
