@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary header">
   <div class="container-fluid">
-    <img class="nav_logo" src="../static/images/bread.png" alt="bread">
+    <img class="nav_logo" src="{{ url_for('static',filename='images/bread.png') }}" alt="bread">
     <a class="navbar-brand" href="{{ url_for('main.index') }}">BreadBox</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
         <a class="nav-link" href="{{ url_for('main.about') }}">About</a>
@@ -20,10 +20,11 @@
         {% endif %}
         <a class="nav-link" href="{{ url_for('auth.sign_out') }}">Sign Out</a>
         {% else %}
-        <a class="nav-link" href="{{ url_for('auth.signin') }}">Sign In</a>
-        <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+        <a class="nav-link nav-left" href="{{ url_for('auth.signin') }}">Sign In</a>
+        <a class="nav-link nav-left" href="{{ url_for('auth.register') }}">Register</a>
         {% endif %}
       </div>
     </div>
   </div>
 </nav>
+

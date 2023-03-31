@@ -1,5 +1,5 @@
 from . import bp as social_bp
-from .models import User, Post
+from .models import User, Post, UserBoxes
 from app.forms import BoxPostForm, UserRegisterForm
 from flask import redirect, render_template, flash, url_for
 from flask_login import login_required, current_user
@@ -10,7 +10,6 @@ import random
 def post():
     form = BoxPostForm()
     if form.validate_on_submit():
-
         items = form.items.data
         pickup_time = form.pickup_time.data
         price = form.price.data
@@ -32,12 +31,16 @@ def user(username):
 @social_bp.route('/my_boxes', methods=['GET', 'POST'])
 def my_boxes(): 
     random
-    # post = Post()
-    # user = User()
-    # user.buyer = current_user
-    # print(current_user)
-    
-    return render_template('my_boxes.jinja', post=post, user=user, random = random) #, buyer=buyer
+    user = current_user
+    post = Post()
+    post_id = current_user
+    print(post_id)
+    # boxes = Post.query.filter_by(id=id).boxes 
+    # post_match = Post.query.filter_by(post_id=post.id).first()
+    userbox = UserBoxes(user_id=user.id, post_id=post_id.id)
+    print(UserBoxes())
+    userbox.commit()
+    return render_template('my_boxes.jinja', post=post, user=userbox, current_user=current_user, random=random) #, buyer=buyer
 
 @social_bp.route('/explore_food', methods=['GET', 'POST'])
 def explore_food():
@@ -47,3 +50,9 @@ def explore_food():
     posts = all_posts
     return render_template('explore_food.jinja', all_posts=all_posts, posts=posts)
 
+@social_bp.route('/add/<int:id>')
+def add(id):
+    ub = UserBoxes()
+    post_to_add = Post.query.get(id)
+    ub.commit()
+    

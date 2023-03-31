@@ -36,10 +36,8 @@ class BoxPostForm(FlaskForm):
     price = StringField('Price per Box', validators=[DataRequired()])
     submit = SubmitField('Post Boxes')
 
-class AddBox(FlaskForm):
-    store_name = StringField('Store Name', validators=[DataRequired()])
-    quantity = StringField('Number of Boxes', validators=[DataRequired()])
-    pickup_time = StringField('Pick-Up Time', validators=[DataRequired()])
-    price = StringField('Price per Box', validators=[DataRequired()])
-    submit = SubmitField('Reserve Box')
+# class AddBox(FlaskForm):
+#     user_id = 
+#     post_id = 
+#     submit = SubmitField('Reserve Box')
 

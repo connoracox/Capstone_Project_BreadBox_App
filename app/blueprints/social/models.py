@@ -19,7 +19,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(120), nullable=True)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     # buyer_id = db.Column(db.Integer, db.ForeignKey('post.id'))
-    boxesU = db.relationship('UserBoxes', backref='buyerU', lazy='dynamic')   
+    # boxesU = db.relationship('UserBoxes', backref='buyerU', lazy='dynamic')   
     def __repr__(self):
         if self.email:
             return f'<User: {self.email}>'
@@ -46,7 +46,7 @@ class Post(db.Model):
     buyer = db.Column(db.String(64))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    boxesP = db.relationship('UserBoxes', backref='buyerP', lazy='dynamic')
+    boxes = db.relationship('UserBoxes', backref='buyer', lazy='dynamic')
     # buyer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
@@ -63,7 +63,7 @@ class UserBoxes(db.Model):
 
 
     def __repr__(self):
-        return f'<Post {self.items}>'
+        return f'<Post {self.id}>'
 
     def commit(self):
         db.session.add(self)

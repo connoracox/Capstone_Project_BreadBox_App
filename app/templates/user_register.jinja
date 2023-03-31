@@ -1,7 +1,8 @@
 {% extends "base.jinja" %}
 
 {% block content %}
-    <h2 class="page_title">Register</h2>
+<div class="reg_box">
+    <h2 class="box_title">Register</h2><br>
     <form action="" method="post">
         {{ user_register_form.hidden_tag() }}
         <p>
@@ -28,4 +29,5 @@
         </p>
         <p>{{ user_register_form.submit(class='btn1 btn-primary') }}</p>
     </form>
+</div>
 {% endblock %}

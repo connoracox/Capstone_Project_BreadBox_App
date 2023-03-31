@@ -1,17 +1,19 @@
 {% extends "base.jinja" %}
-
 {% block content %}
 <h2 class="page_title">{{ user.username.upper() }}'s Profile</h2>
 <br>
-{% for post in posts %}
-<div class="box_post">
-    <img src="../static/images/pineapple.png" alt="bread_logo">
-    <h4>{{ user.store_name }} </h4>
-    <p><b>Available for pick up: </b>{{post.pickup_time}}</p>
-    <p>{{post.price}}</p>
-    <p>Posted by: {{ post.author.username.upper() }}</p>
-    <br>
-    <br>
+<div class="post_container">
+    {% for post in posts [::-1]%}
+    <div class="box_post">
+        <img class='bread_logo' src="{{ url_for('static',filename='images/bread.png') }}" alt="bread_logo">
+        <h4>{{ user.store_name }} </h4>
+        <h4>{{ post.items }} </h4>
+        <p><b>Available for pick up: </b>{{post.pickup_time}}</p>
+        <p>{{post.price}}</p>
+        <p>Posted by: {{ post.author.username.upper() }}</p>
+        <br>
+        <br>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
